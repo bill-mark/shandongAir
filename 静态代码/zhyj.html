@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>综合预警</title>
+    <script>
+        $(function(){
+            $(".fun-btn").click(function(e){
+                $(".fun-main").toggleClass("fun-show");
+                e.stopPropagation();
+            });
+           /* $(".fun-main").click(function(e){
+                e.stopPropagation();
+            });
+            $(document).click(function(){
+                $(".fun-main").removeClass("fun-show");
+            });*/
+
+            $(".fa-remove").click(function(){
+                $(".bw-pop").hide();
+            });
+            $(".refresh").hover(function(){
+                 $(".refresh .fa").addClass("fa-spin");
+            },function(){
+                        $(".refresh .fa").removeClass("fa-spin");
+            });
+
+            $(".sec-t .btn-hot").click(function(){
+                if($(this).parents(".sec-t").hasClass("sec-open")){
+                    $(this).parents(".sec-t").removeClass("sec-open").addClass("sec-close");
+                    $(this).parents(".sec-t").next().hide();
+                }else if($(this).parents(".sec-t").hasClass("sec-close")){
+                    $(this).parents(".sec-t").removeClass("sec-close").addClass("sec-open");
+                    $(this).parents(".sec-t").next().show();
+                }
+            });
+            /*全选*/
+            var ch1=$('.check1 input');
+            var all1=$('.check-all1 input');
+            $('.check-all1 input').click(function() {
+                ch1.each(function(e){
+                    ch1.prop('checked',all1.prop('checked'));
+                });
+            });
+            $('.check1 input').click(function(){
+                if($('.check1 input').length>$('.check1 input:checked').length){
+                    all1.prop('checked',false);
+                }
+            });
+            var ch2=$('.check2 input');
+            var all2=$('.check-all2 input');
+            $('.check-all2 input').click(function() {
+                ch2.each(function(e){
+                    ch2.prop('checked',all2.prop('checked'))
+                });
+            });
+            $('.check2 input').click(function(){
+                if($('.check2 input').length>$('.check2 input:checked').length){
+                    all2.prop('checked',false);
+                }
+            });
+            var ch3=$('.check3 input');
+            var all3=$('.check-all3 input');
+            $('.check-all3 input').click(function() {
+                ch3.each(function(e){
+                    ch3.prop('checked',all3.prop('checked'));
+                });
+            });
+            $('.check3 input').click(function(){
+                if($('.check3 input').length>$('.check3 input:checked').length){
+                    all3.prop('checked',false);
+                }
+            });
+
+            $(".bw-trans tr:odd").css("background","#edeff4");
+
+            $(".pull-btn").click(function(){
+                if($(".bw-trans-box").hasClass("down")){
+                    $(".bw-trans-box").animate({top:"0"});
+                    $(".bw-trans-box").removeClass("down");
+                    $(".shadow-box").removeClass("new-info");
+                }else{
+                    $(".bw-trans-box").animate({top:"-212px"});
+                    $(".bw-trans-box").addClass("down");
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="map-box">
+    <div class="volcano">
+        <span class="v-sample"><i class="fa fa-reorder"></i></span>
+        <span class="v-toggle"><i class="fa fa-arrows-h"></i></span>
+    </div>
+    <div class="bw-pop">
+        <div class="pop-title">南京路口机场<span><i class="fa fa-remove"></i></span></div>
+        <div class="bw-area">
+            METAR ZSNJ 070200Z 08005MPS 1200 R06/1200N R07/1000N -DZ BR BKN004
+            OVC020 14/14 Q1014 BECMG TL0330 1500 BKN006 OVC040=METAR ZSNJ 070200Z 08005MPS 1200 R06/1200N R07/1000N -DZ BR BKN004
+            OVC020 14/14 Q1014 BECMG TL0330 1500 BKN006 OVC040=METAR ZSNJ 070200Z 08005MPS 1200 R06/1200N R07/1000N -DZ BR BKN004
+            OVC020 14/14 Q1014 BECMG TL0330 1500 BKN006 OVC040=
+        </div>
+        <div class="icon-line">
+            <a class="icon-in in1" href="#" title="跑道自观"></a>
+            <a class="icon-in in2" href="#" title="单站雷达"></a>
+            <a class="icon-in in3" href="#" title="机场预警"></a>
+            <a class="icon-in in4" href="#" title="区域预警"></a>
+            <a class="icon-in in5" href="#" title="终端区重要天气预警"></a>
+        </div>
+    </div>
+    <div class="full-screen"><i class="fa fa-arrows-alt"></i></div>
+    <div class="fun-btn">
+
+    </div>
+    <div class="fun-main">
+        <div class="fun-title">机场过滤</div>
+        <div class="fun-in checking">
+            <ul>
+                <li><span class="sec-t sec-close check-all1"><a class="btn-hot"></a><input type="checkbox"><span class="check-name">当日运行机场</span></span>
+                    <ul style="display:none;">
+                        <li class="check1"><input type="checkbox"><span class="check-name">运行机场1</span></li>
+                        <li class="check1"><input type="checkbox"><span class="check-name">运行机场2</span></li>
+                        <li class="check1"><input type="checkbox"><span class="check-name">运行机场3</span></li>
+                        <li class="check1"><input type="checkbox"><span class="check-name">运行机场4</span></li>
+                        <li class="check1"><input type="checkbox"><span class="check-name">运行机场5</span></li>
+                    </ul>
+                </li>
+                <li><span class="sec-t sec-close check-all2"><a class="btn-hot"></a><input type="checkbox"><span class="check-name">我的运行机场</span></span>
+                    <ul style="display:none;">
+                        <li class="check2"><input type="checkbox"><span class="check-name">运行机场1</span></li>
+                        <li class="check2"><input type="checkbox"><span class="check-name">运行机场2</span></li>
+                        <li class="check2"><input type="checkbox"><span class="check-name">运行机场3</span></li>
+                        <li class="check2"><input type="checkbox"><span class="check-name">运行机场4</span></li>
+                        <li class="check2"><input type="checkbox"><span class="check-name">运行机场5</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="fun-title">全部机场</div>
+        <div class="fun-in checking">
+            <ul>
+                <li><span class="sec-t sec-close check-all3"><a class="btn-hot"></a><input type="checkbox"><span class="check-name">全国机场</span></span>
+                    <ul style="display:none;">
+                        <li class="check3"><input type="checkbox"><span class="check-name">运行机场1</span></li>
+                        <li class="check3"><input type="checkbox"><span class="check-name">运行机场2</span></li>
+                        <li class="check3"><input type="checkbox"><span class="check-name">运行机场3</span></li>
+                        <li class="check3"><input type="checkbox"><span class="check-name">运行机场4</span></li>
+                        <li class="check3"><input type="checkbox"><span class="check-name">运行机场5</span></li>
+                    </ul>
+                </li>
+                <li><span class="sec-t"><a class="btn-hot"></a><input type="checkbox"><span class="check-name">国际机场</span></span>
+                </li>
+            </ul>
+        </div>
+        <div class="fun-title">告警过滤<span class="refresh"><i class="fa fa-refresh"></i></span></div>
+        <div class="fun-in listing">
+            <ul>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">雷暴、冰雹、冻雨、龙卷、飑、火山灰</span><span class="yuan y1"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">雪、雨夹雪、冰粒、霰、冰晶、米雪</span><span class="yuan y2"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">雾</span><span class="yuan y3"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">大风、沙暴、尘暴、扬沙</span><span class="yuan y4"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">低云</span><span class="yuan y5"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">烟、浮尘</span><span class="yuan y6"></span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">雨，毛毛雨</span><span class="yuan y7"></span></span></li>
+            </ul>
+        </div>
+        <div class="fun-in listing listing2">
+            <ul>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">正常</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">无数据</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">区域警报</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">显示飞行情报区</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">显示主要航路</span></span></li>
+            </ul>
+            <ul>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">警告</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">机场警报</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">终端区重要天气警报</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">飞行情报区报警</span></span></li>
+                <li><span class="sec-t"><input type="checkbox"><span class="check-name">火山灰</span></span></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="fun-in">
+            <input class="fun-btn-n btn-n1" type="button" value="清除台风路径">
+            <input class="fun-btn-n btn-n2" type="button" value="清除火山灰云">
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="bw-trans-box down">
+        <div class="bw-trans">
+            <table>
+                <tr>
+                    <th><span style="width:106px;">飞行情报区</span></th>
+                    <th><span style="width:60px;">四字码</span></th>
+                    <th><span style="width:160px;">报文时间</span></th>
+                    <th><span style="width:300px;">原始报文</span></th>
+                    <th><span style="width:240px;">译文</span></th>
+                </tr>
+                <tr class="b-strong">
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;"><a>ZBPE SIGMET 1 VALID SIGMET 1 VALID SIGMET 1 VALID</a><i class="fa fa-pencil" title="编辑译文"></i></span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;" class="to-trans">翻译</span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;"><a>ZBPE SIGMET 1 VALID SIGMET 1 VALID SIGMET 1 VALID</a><i class="fa fa-pencil" title="编辑译文"></i></span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;"><a>ZBPE SIGMET 1 VALID SIGMET 1 VALID SIGMET 1 VALID</a><i class="fa fa-pencil" title="编辑译文"></i></span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;" class="to-trans">翻译</span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;"><a>ZBPE SIGMET 1 VALID SIGMET 1 VALID SIGMET 1 VALID</a><i class="fa fa-pencil" title="编辑译文"></i></span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;" class="to-trans">翻译</span></td>
+                </tr>
+                <tr>
+                    <td><span style="width:106px;">乌鲁木齐情报区</span></td>
+                    <td><span style="width:60px;">ZYSH</span></td>
+                    <td><span style="width:160px;">2017/4/7 05:00:00</span></td>
+                    <td><span style="width:300px;">ZSHA SIGMET 1 VALID 250500/250900 ZZSHA SIGMET 1 VALID 250500/250900 ZZZSHA SIGMET 1 VALID 250500/250900 Z</span></td>
+                    <td><span style="width:240px;"><a>ZBPE SIGMET 1 VALID SIGMET 1 VALID SIGMET 1 VALID</a><i class="fa fa-pencil" title="编辑译文"></i></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="pull-btn">
+            <div class="shadow-box new-info"></div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

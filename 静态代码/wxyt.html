@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卫星云图</title>
+    <script type="text/javascript" src="js/wxyt.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css">
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/datepicker-zh-CN.js"></script>
+    <script type="text/javascript">
+        let isFirst = true;
+        $(window).scroll(function (obj) {
+            let offSet = $(window).scrollTop();
+            if(isFirst){
+                if (offSet <= 114) {
+                    $(window).scrollTop(114)
+                    isFirst = false;
+                }
+            }
+            if (offSet == 0) {
+                isFirst = true
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="navIn">
+    <div class="location">卫星云图：<strong>风云2号卫星</strong></div>
+    <ul class="mid">
+        <li><a href="#" class="a-on">红外1</a></li>
+        <li><a href="#">红外2</a></li>
+        <li><a href="#">水汽图</a></li>
+        <li><a href="#">可见光</a></li>
+        <li><a href="#">三维云图</a></li>
+        <li><a href="#">澳洲航线</a></li>
+        <li><a href="#">全球拼图</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="pic-box">
+        <img src="images/wxpic.png">
+        <div class="ctrl-box">
+            <a href="#"><i class="fa fa-backward fa-fw fa-ctrl"></i></a>
+            <a href="#"><i class="fa fa-play fa-fw fa-ctrl"></i></a>
+            <a href="#"><i class="fa fa-forward fa-fw fa-ctrl"></i></a>
+        </div>
+        <span class="remove-btn"><i class="fa fa-trash"></i></span>
+    </div>
+    <div class="time-bar">
+        <div class="in-box">
+            <div class="time-title">
+                <span class="check-all"><input type="checkbox"></span>
+                    图片时间
+                <span class="full-screen">全屏</span>
+            </div>
+            <div class="time-box">
+                <ul>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                    <li>
+                        <span class="check"><input type="checkbox"></span>
+                        <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                        <span class="full-screen1"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-box">
+                <table>
+                    <tr>
+                        <td><span><input type="button" value="另存"></span></td>
+                        <td><span><input type="button" value="打印"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><input type="button" value="播放"></span></td>
+                        <td><span class="history"><input type="button" value="历史查询"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog-box">
+        <div class="dialog-title">历史查询：
+            <div class="mid1">
+                <strong class="title-on">风云2号卫星</strong><strong>葵花8号卫星</strong>
+            </div>
+        </div>
+        <div class="pic-classify">
+            <ul>
+                <li><a href="#" class="aa-on">红外1</a></li>
+                <li><a href="#">红外2</a></li>
+                <li><a href="#">水汽图</a></li>
+                <li><a href="#">可见光</a></li>
+                <li><a href="#">三维云图</a></li>
+                <li><a href="#">澳洲航线</a></li>
+                <li><a href="#">全球拼图</a></li>
+            </ul>
+        </div>
+        <div class="time-search">
+            <span><input type="text" id="datepicker"></span><strong>至</strong>
+            <span><input type="text" id="datepicker1"></span>
+            <span class="time-search-btn"><input type="button" value="开始查询"> </span>
+        </div>
+        <div class="time-box history-time-box">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="backdrop-box"></div>
+</body>
+</html>

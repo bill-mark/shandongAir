@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>航班预警</title>
+    <script type="text/javascript">
+        $(function(){
+            $(".over-btn-red .fa-circle-o").click(function(){
+                $(".over-btn-red .fa-circle-o").removeClass("fa-dot-circle-o");
+                $(this).addClass("fa-dot-circle-o");
+                $(this).next().prop("checked","checked");
+            });
+            $(".over-btn-blue .fa-circle-o").click(function(){
+                $(".over-btn-blue .fa-circle-o").removeClass("fa-dot-circle-o");
+                $(this).addClass("fa-dot-circle-o");
+                $(this).next().prop("checked","checked");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="listNav listNav-sk" id="fix">
+    <ul>
+        <li><a href="#">航班号</a></li>
+        <li><a href="#">机号</a></li>
+        <li><a href="#">机型</a></li>
+        <li><a href="#">起飞机场</a></li>
+        <li><a href="#">目的地机场</a></li>
+        <li><a href="#">备降机场</a></li>
+        <li><a href="#">计划起飞时间</a></li>
+        <li><a href="#">实际起飞时间</a></li>
+        <li><a href="#">计划到达时间</a></li>
+        <li><a href="#">预计到达时间</a></li>
+        <li><a href="#">实际到达时间</a></li>
+        <li><a href="#">飞行状态</a></li>
+        <li><a href="#">运行范围</a></li>
+        <li><a href="#">航班性质</a></li>
+    </ul>
+</div>
+<div class="list-sk list-yj">
+    <div class="over-btn over-btn-yj over-btn-red">
+        <label for="j1"><span class="btn-in"><i class="fa fa-circle-o fa-p"></i><input type="radio" name="c-radio" id="j1" hidden>全部航班</span></label>
+        <label for="j2"><span class="btn-in"><i class="fa fa-circle-o fa-p"></i><input type="radio" name="c-radio" id="j2" hidden>我的航班</span></label>
+    </div>
+    <div class="over-btn over-btn-yj over-btn-blue">
+        <label for="j3"><span class="btn-in"><i class="fa fa-circle-o fa-p"></i><input type="radio" name="d-radio" id="j3" hidden>国内航班</span></label>
+        <label for="j4"><span class="btn-in"><i class="fa fa-circle-o fa-p"></i><input type="radio" name="d-radio" id="j4" hidden>国际航班</span></label>
+    </div>
+    <ul>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-red">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status1">计划</a></li>
+                <li><a href="#" class="fly-status">国际</a></li>
+                <li><a href="#" class="fly-status status2">正班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a  class="status-btn status-btn-nor">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status2">起飞</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-yellow">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status3">到达</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-red">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status1">计划</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status2">正班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a  class="status-btn status-btn-nor">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status2">起飞</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-yellow">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status3">到达</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-red">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status1">计划</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status2">正班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a  class="status-btn status-btn-nor">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status2">起飞</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-yellow">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status3">到达</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-red">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status1">计划</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status2">正班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a  class="status-btn status-btn-nor">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status2">起飞</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-yellow">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status3">到达</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-red">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status1">计划</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status2">正班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a  class="status-btn status-btn-nor">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status2">起飞</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li><a class="status-btn status-btn-yellow">SC2975</a></li>
+                <li>
+                    <a href="#">
+                        <span>ZBAA</span>
+                    </a>
+                </li>
+                <li><a href="#">737</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">ZBAA</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#">13:55</a></li>
+                <li><a href="#" class="fly-status status3">到达</a></li>
+                <li><a href="#">国际</a></li>
+                <li><a href="#" class="fly-status status4">补班</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="js/zhiding.js" type="text/javascript"></script>
+</body>
+</html>

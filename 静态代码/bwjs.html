@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>报文检索</title>
+    <script>
+        $(function(){
+            $(".aa .fa-circle-o").click(function(){
+                $(".aa .fa-circle-o").removeClass("fa-dot-circle-o");
+               $(this).addClass("fa-dot-circle-o");
+                $(this).next().prop("checked","checked");
+            });
+            $(".bb .fa-circle-o").click(function(){
+                $(".bb .fa-circle-o").removeClass("fa-dot-circle-o");
+                $(this).addClass("fa-dot-circle-o");
+                $(this).next().prop("checked","checked");
+            });
+            $("label").click(function(){
+               $(this).find(".fa-c").click();
+            });
+            $(".d-label").click(function(){
+                $(".fa-d").click();
+            });
+
+            $(".btn-check").click(function(){
+               if($(this).find("i").hasClass("fa-square-o")){
+                   $(this).find("i").removeClass("fa-square-o").addClass("fa-check-square-o");
+               }else if($(this).find("i").hasClass("fa-check-square-o")){
+                    $(this).find("i").removeClass("fa-check-square-o").addClass("fa-square-o");
+                }
+            });
+            $(".btn-check-all").click(function(){
+                if($(this).find("i").hasClass("fa-square-o")){
+                    $(this).find("i").removeClass("fa-square-o").addClass("fa-check-square-o");
+                    $(".btn-check i").removeClass("fa-square-o").addClass("fa-check-square-o");
+                }else if($(this).find("i").hasClass("fa-check-square-o")){
+                    $(this).find("i").removeClass("fa-check-square-o").addClass("fa-square-o");
+                    $(".btn-check i").removeClass("fa-check-square-o").addClass("fa-square-o");
+                }
+            });
+            /*全选按钮*/
+                var ch=$('.btn-in input[type="checkbox"]');
+                var all=$('.btn-in-all input');
+                $('.btn-in-all input').click(function() {
+                ch.each(function(e){
+                ch.prop('checked',all.prop('checked'))
+            });
+            });
+                $('.btn-in input').click(function(){
+                if($('.btn-in input').length>$('.btn-in input:checked').length){
+                all.prop('checked',false);
+                $('.btn-check-all i').removeClass("fa-check-square-o").addClass("fa-square-o");
+            }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="met-box">
+        <div class="met-in">
+            <p>1.METAR ZGGG 190200Z 18004MPS CAVOK 29/20 Q1009 NOSIG=</p>
+            <p>2.METAR ZGGG 190130Z 16003MPS 140V210 8000 NSC 29/20 Q1009 NOSIG=</p>
+            <p>3.METAR ZGGG 190100Z 15003MPS 110V190 5000 HZ NSC 28/20 Q1009 NOSIG=</p>
+            <p>4.METAR ZGGG 190030Z VRB01MPS 4000 BR NSC 26/22 Q1009 NOSIG=</p>
+            <p>5.METAR ZGGG 190000Z VRB01MPS 4000 BR NSC 26/23 Q1008 NOSIG=</p>
+            <p>6.METAR ZGGG 182330Z VRB01MPS 2800 BR BKN056 26/22 Q1008 BECMG TL0020 3200 BR=</p>
+            <p>7.METAR ZGGG 182300Z 10002MPS 3200 BR BKN056 25/22 Q1008 BECMG TL2345 2500 BR=</p>
+            <p>8.TAF ZGGG 190108Z 190312 18003MPS 6000 SCT040 TX30/07Z TN26/12Z TEMPO 0408 2000 TSRA SCT011 SCT030CB BKN033 TEMPO 0812 2000 TSRA SCT011 SCT030CB BKN033 </p>
+            <p>1.METAR ZGGG 190200Z 18004MPS CAVOK 29/20 Q1009 NOSIG=</p>
+            <p>2.METAR ZGGG 190130Z 16003MPS 140V210 8000 NSC 29/20 Q1009 NOSIG=</p>
+            <p>3.METAR ZGGG 190100Z 15003MPS 110V190 5000 HZ NSC 28/20 Q1009 NOSIG=</p>
+            <p>4.METAR ZGGG 190030Z VRB01MPS 4000 BR NSC 26/22 Q1009 NOSIG=</p>
+            <p>5.METAR ZGGG 190000Z VRB01MPS 4000 BR NSC 26/23 Q1008 NOSIG=</p>
+            <p>6.METAR ZGGG 182330Z VRB01MPS 2800 BR BKN056 26/22 Q1008 BECMG TL0020 3200 BR=</p>
+            <p>7.METAR ZGGG 182300Z 10002MPS 3200 BR BKN056 25/22 Q1008 BECMG TL2345 2500 BR=</p>
+            <p>8.TAF ZGGG 190108Z 190312 18003MPS 6000 SCT040 TX30/07Z TN26/12Z TEMPO 0408 2000 TSRA SCT011 SCT030CB
+                BKN033 TEMPO 0812 2000 TSRA SCT011 SCT030CB BKN033 </p>
+            <p>1.METAR ZGGG 190200Z 18004MPS CAVOK 29/20 Q1009 NOSIG=</p>
+            <p>2.METAR ZGGG 190130Z 16003MPS 140V210 8000 NSC 29/20 Q1009 NOSIG=</p>
+            <p>3.METAR ZGGG 190100Z 15003MPS 110V190 5000 HZ NSC 28/20 Q1009 NOSIG=</p>
+            <p>4.METAR ZGGG 190030Z VRB01MPS 4000 BR NSC 26/22 Q1009 NOSIG=</p>
+            <p>5.METAR ZGGG 190000Z VRB01MPS 4000 BR NSC 26/23 Q1008 NOSIG=</p>
+            <p>6.METAR ZGGG 182330Z VRB01MPS 2800 BR BKN056 26/22 Q1008 BECMG TL0020 3200 BR=</p>
+            <p>7.METAR ZGGG 182300Z 10002MPS 3200 BR BKN056 25/22 Q1008 BECMG TL2345 2500 BR=</p>
+            <p>8.TAF ZGGG 190108Z 190312 18003MPS 6000 SCT040 TX30/07Z TN26/12Z TEMPO 0408 2000 TSRA SCT011 SCT030CB
+                BKN033 TEMPO 0812 2000 TSRA SCT011 SCT030CB BKN033 </p>
+        </div>
+    </div>
+    <div class="search-c">
+        <h3>检索条件</h3>
+        <table>
+            <tr>
+                <td rowspan="3" class="c-name">机场条件：</td>
+                <td colspan="2" class="aa">
+                    <label for="r1"><span class="btn-in"><i class="fa fa-circle-o fa-c"></i><input type="radio" name="c-radio" id="r1" hidden>四字代码</span></label>
+                    <label><span class="text-in"><i class="fa fa-gg"></i><input type="text"> </span></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">注：输入多个四字码请用空格分割</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="aa">
+                    <label for="r2"><span class="btn-in"><i class="fa fa-circle-o fa-c"></i><input type="radio" name="c-radio" id="r2" hidden>区域选择</span>
+                    <span class="text-in"><select>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                    </select></span></label>
+                </td>
+            </tr>
+
+            <tr>
+                <td rowspan="3" class="c-name">时间条件：</td>
+                <td class="bb">
+                    <label for="r3"><span class="btn-in"><i class="fa fa-circle-o fa-c"></i><input type="radio" name="d-radio" id="r3" hidden>最近</span>
+                    <span class="text-in text-in2"><select>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                        <option>1</option>
+                    </select></span>&nbsp;<span> 小时</span></label>
+                </td>
+                <td class="bb">
+                    <label for="r4"><span class="btn-in"><i class="fa fa-circle-o fa-c"></i><input type="radio" name="d-radio" id="r4" hidden>最新</span>
+                    <span class="text-in text-in2"><i class="fa fa-file-o"></i><input type="text"> </span>&nbsp;<span> 份</span></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bb">
+                        <span class="btn-in"><i class="fa fa-circle-o fa-c fa-d"></i><input type="radio" name="d-radio" id="r5" hidden>时间段(UTC)</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="r5" class="d-label">
+                        <span class="text-in text-in3"><i class="fa fa-calendar"></i><input type="text"> </span>
+                        <span class="text-in text-in4"><input type="text"></span><span class="text-in4">- -</span>
+                        <span class="text-in text-in3"><i class="fa fa-calendar"></i><input type="text"> </span>
+                        <span class="text-in text-in4"><input type="text"></span>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td rowspan="6" class="c-name">报文种类：</td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r6"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r6" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r7"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r7" hidden>SA(机场例行天气报告)</span></td>
+            </tr>
+            <tr>
+                <td><span class="btn-in"><span class="btn-check"><label for="r8"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r8" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r9"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r9" hidden>SA(机场例行天气报告)</span></td>
+            </tr>
+            <tr>
+                <td><span class="btn-in"><span class="btn-check"><label for="r10"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r10" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r11"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r11" hidden>SA(机场例行天气报告)</span></td>
+            </tr>
+            <tr>
+                <td><span class="btn-in"><span class="btn-check"><label for="r12"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r12" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r13"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r13" hidden>SA(机场例行天气报告)</span></td>
+            </tr>
+            <tr>
+                <td><span class="btn-in"><span class="btn-check"><label for="r14"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r14" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in"><span class="btn-check"><label for="r15"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r15" hidden>SA(机场例行天气报告)</span></td>
+            </tr>
+            <tr>
+                <td><span class="btn-in"><span class="btn-check"><label for="r16"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r16" hidden>SA(机场例行天气报告)</span></td>
+                <td><span class="btn-in-all"><span class="btn-check-all"><label for="r17"><i class="fa fa-square-o fa-c"></i></label></span><input type="checkbox" id="r17" hidden>全选</span></td>
+            </tr>
+
+            <tr>
+                <td class="c-name">常用机场：</td>
+                <td colspan="2" class="used-airport">
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                    <span class="ap-name"><a href="">ZBAA</a> </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="search-go" colspan="3">
+                        <span><input type="button" value="">搜索</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+<div class="clear"></div>
+</body>
+</html>

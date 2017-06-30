@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>跑道自观</title>
+    <script type="text/javascript">
+        $(function(){
+            $(".fa-circle-o").click(function(){
+                $(".fa-circle-o").removeClass("fa-dot-circle-o");
+                $(this).addClass("fa-dot-circle-o");
+                $(this).next().prop("checked","checked");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="color-line">
+    <div class="over-btn">
+        <label for="p1">
+          <span class="btn-in">
+              <i class="fa fa-circle-o fa-p"></i>
+              <input type="radio" name="c-radio" id="p1" hidden />区域
+          </span>
+        </label>
+        <label for="p2"><span class="btn-in"><i class="fa fa-circle-o fa-p"></i><input type="radio" name="c-radio" id="p2" hidden />警报</span></label>
+    </div>
+</div>
+    <table class="list-zg list-head-show" id="fix" style="display:none;background:none;">
+        <tr>
+            <th><a href="#">机场111</a></th>
+            <th><a href="#">跑道编号</a></th>
+            <th><a href="#">更新时间<br/><span>(UTC)</span></a></th>
+            <th><a href="#">2min平均风向<br/><span>(°)</span></a></th>
+            <th><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">阵风风向<br/><span>(°)</span></a></th>
+            <th><a href="#">阵风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">2min阵风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">1minMOR<br/><span>(m)</span></a></th>
+            <th><a href="#">1minRVR<br/><span>(m)</span></a></th>
+            <th><a href="#">云底高<br/><span>(m)</span></a></th>
+            <th><a href="#">温度<br/><span>(℃)</span></a></th>
+            <th><a href="#">露点温度<br/><span>(℃)</span></a></th>
+            <th><a href="#">相对湿度<br/><span>(%)</span></a></th>
+        </tr>
+    </table>
+    <table class="list-zg" id="airtable">
+        <tr>
+            <th><a href="#">机场</a></th>
+            <th><a href="#">跑道编号</a></th>
+            <th><a href="#">更新时间<br/><span>(UTC)</span></a></th>
+            <th><a href="#">2min平均风向<br/><span>(°)</span></a></th>
+            <th><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">阵风风向<br/><span>(°)</span></a></th>
+            <th><a href="#">阵风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">2min阵风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
+            <th><a href="#">1minMOR<br/><span>(m)</span></a></th>
+            <th><a href="#">1minRVR<br/><span>(m)</span></a></th>
+            <th><a href="#">云底高<br/><span>(m)</span></a></th>
+            <th><a href="#">温度<br/><span>(℃)</span></a></th>
+            <th><a href="#">露点温度<br/><span>(℃)</span></a></th>
+            <th><a href="#">相对湿度<br/><span>(%)</span></a></th>
+        </tr>
+        <tr v-for="item in airlist">
+            <td v-if="item.CCCCRowCount" v-bind:rowspan=item.CCCCRowCount class="first-td">
+                <a href="#" class="jic">{{item.CCCC}}</a>
+            </td>
+            <td><a href="#" class="paod">{{item.RUNWAY_NO}}</a></td>
+            <td><a href="#">{{item.OTIME}}</a></td>
+            <td><a href="#">
+                  {{item.WIND_D2}} &nbsp
+              </a></td>
+            <td><a href="#">
+                 {{item.WIND_F2}} &nbsp
+                 <span class="list-icons status" v-bind:style="{'background-image':item.WIND_F2_UOD}"></span>
+                 <span class="list-icons warn" v-bind:style="{'background-color':item.WIND_F2_Color}"></span>
+            </a></td>
+            <td><a href="#">{{item.MAX_WIND_D}}</a></td>
+            <td><a href="#">
+               {{item.MAX_WIND_F}} &nbsp
+               <span class="list-icons warn" v-bind:style="{'background-color':item.MAX_WIND_F_Color}"></span>
+            </a></td>
+            <td><a href="#">
+               {{item.PARALLEL_WIND}} &nbsp
+               <span class="list-icons warn" v-bind:style="{'background-color':item.PARALLEL_WIND_Color}"></span>
+            </a></td>
+            <td><a href="#">
+              {{item.CROSS_WIND}} &nbsp
+              <span class="list-icons warn" v-bind:style="{'background-color':item.CROSS_WIND_Color}"></span>
+            </a></td>
+            <td><a href="#">
+               {{item.MOR_1A}} &nbsp
+               <span class="list-icons warn" v-bind:style="{'background-color':item.MOR_1A_Color}"></span>
+            </a></td>
+            <td><a href="#">
+               {{item.RVR_1A}} &nbsp
+               <span class="list-icons status" v-bind:style="{'background-image':item.RVR_1A_UOD}"></span>
+               <span class="list-icons warn" v-bind:style="{'background-color':item.RVR_1A_Color}"></span>
+            </a></td>
+            <td><a href="#">
+              {{item.CLD_HL}} &nbsp
+              <span class="list-icons status" v-bind:style="{'background-image':item.CLD_HL_UOD}"></span>
+              <span class="list-icons warn" v-bind:style="{'background-color':item.CLD_HL_Color}"></span>
+            </a></td>
+            <td><a href="#">
+               {{item.TEMP}}  &nbsp
+               <span class="list-icons status" v-bind:style="{'background-image':item.TEMP_UOD}"></span>
+               <span class="list-icons warn" v-bind:style="{'background-color':item.TEMP_Color}"></span>
+            </a></td>
+            <td><a href="#">
+               {{item.TD}}
+               <span class="list-icons warn" v-bind:style="{'background-color':item.TD_Color}"></span>
+            </a></td>
+            <td><a href="#">
+              {{item.HUMID}} &nbsp
+              <span class="list-icons status" v-bind:style="{'background-image':item.HUMID_UOD}"></span>
+              <span class="list-icons warn" v-bind:style="{'background-color':item.HUMID_Color}"></span>
+            </a></td>
+        </tr>
+    </table>
+
+<script>
+new Vue({
+  el:'#airtable',
+  data:{                                      
+    panelt:true,
+    airlist: [
+      {
+               "CCCC": "ZBAA", //机场
+               "RUNWAY_NO": "18R",//跑道
+               "RNO": "01",//
+               "RUNWAY_ORDER": 1,
+               "MAGNETIC": "179",
+               "ANGLE": "W0060",
+               "OTIME": "08:54",//更新时间
+               "RVR_1A": "P2000",//1minRVR
+               "RVR_10A": "P2000",
+               "MOR_1A": "10000",//1minMOR
+               "MOR_10A": "10000",
+               "WIND_F2": "4.0",//2min平均风速
+               "WIND_D2": "193",//2min平均风向
+               "WIND_F10": "3.9",
+               "WIND_D10": "194",
+               "MAX_WIND_F": "5.7",//阵风风速
+               "MAX_WIND_D": "225",//阵风风向
+               "QNH": "1003.6",
+               "QFE": "999.40",
+               "TEMP": "33.5",//温度
+               "HUMID": "39",//相对湿度
+               "TD": "18",//露点温度
+               "CLD_HL": "\/\/\/",//云底高
+               "CLD_HM": "\/\/\/",
+               "CLD_HH": "\/\/\/",
+               "CROSS_WIND": "1.0R", //2min正侧风风向
+               "PARALLEL_WIND": "-3.9R",//2min阵风风速
+               "ALARMLEVEL": "1",
+               "ALARMCOLOR": "#FF0000",
+               "CCCCLEVEL": "1",
+               "CCCCCOLOR": "#FF0000",
+               "ORDER_NO": "1",
+               "CCCCRowCount": 3,
+               "RVR_1A_Level": "",
+               "RVR_10A_Level": "",
+               "MOR_1A_Level": "5",
+               "MOR_10A_Level": "5",
+               "WIND_F2_Level": "1",
+               "WIND_F10_Level": "1",
+               "MAX_WIND_F_Level": "1",
+               "QNH_Level": "2",
+               "QFE_Level": "",
+               "TEMP_Level": "3",
+               "HUMID_Level": "",
+               "TD_Level": "1",
+               "CLD_HL_Level": "",
+               "CLD_HM_Level": "",
+               "CLD_HH_Level": "",
+               "CROSS_WIND_Level": "",
+               "PARALLEL_WIND_Level": "",
+               "RVR_1A_Color": "#d90d0d",
+               "RVR_10A_Color": "#d90d0d",
+               "MOR_1A_Color": "#0066FF ",
+               "MOR_10A_Color": "#0066FF ",
+               "WIND_F2_Color": "#FF0000",
+               "WIND_F10_Color": "#FF0000",
+               "MAX_WIND_F_Color": "#FF0000",
+               "QNH_Color": "#FF8800 ",
+               "QFE_Color": "#d90d0d",
+               "TEMP_Color": "#FF0000",
+               "HUMID_Color": "#d90d0d",
+               "TD_Color": "#FF0000",
+               "CLD_HL_Color": "#d90d0d",
+               "CLD_HM_Color": "#d90d0d",
+               "CLD_HH_Color": "#d90d0d",
+               "CROSS_WIND_Color": "#d90d0d",
+               "PARALLEL_WIND_Color": "#d90d0d",
+               "RVR_1A_UOD": "1",
+               "RVR_10A_UOD": "1",
+               "WIND_F2_UOD": "1",
+               "TEMP_UOD": "1",
+               "HUMID_UOD": "1",
+               "CLD_HL_UOD": "0"
+             },
+      {
+        "CCCC": "ZBAA",
+        "CCCCRowCount": 3,
+        "RUNWAY_NO": "19R",
+        "OTIME": "19:08",
+        "RVR_1A": "P2100",
+        "MOR_1A": "10200",
+        "WIND_F2": "412",
+        "WIND_D2": "6.9",
+        "CROSS_WIND": "2.7R",
+        "PARALLEL_WIND": "+-5.1",
+        "MAX_WIND_F": "9.4",
+        "MAX_WIND_D": "172",
+        "CLD_HL": "\/\/\/",
+        "TEMP": "27.4",
+        "TD": "4.90",
+        "HUMID": "24"
+      },
+      {
+        "CCCC": "ZBAA",
+        "CCCCRowCount": 3,
+        "RUNWAY_NO": "20R",
+        "OTIME": "19:08",
+        "RVR_1A": "P2100",
+        "MOR_1A": "10200",
+        "WIND_F2": "412",
+        "WIND_D2": "6.9",
+        "CROSS_WIND": "2.7R",
+        "PARALLEL_WIND": "+-5.1",
+        "MAX_WIND_F": "9.4",
+        "MAX_WIND_D": "172",
+        "CLD_HL": "\/\/\/",
+        "TEMP": "27.4",
+        "TD": "4.90",
+        "HUMID": "24"
+      },
+      {
+        "CCCC": "TPDD",
+        "CCCCRowCount": 3,
+        "RUNWAY_NO": "21R",
+        "OTIME": "19:08",
+        "RVR_1A": "P2100",
+        "MOR_1A": "10200",
+        "WIND_F2": "412",
+        "WIND_D2": "6.9",
+        "CROSS_WIND": "2.7R",
+        "PARALLEL_WIND": "+-5.1",
+        "MAX_WIND_F": "9.4",
+        "MAX_WIND_D": "172",
+        "CLD_HL": "\/\/\/",
+        "TEMP": "27.4",
+        "TD": "4.90",
+        "HUMID": "24"
+      }
+    ]
+  },
+  // created: function () {  
+  //    this.$http.get("http://rapapi.org/mockjs/21289/sh/pdzg?")
+  //    .then( (res)=>{
+  //          this.airlist = res.data
+  //    },(err) =>{
+  //       console.log(err)
+  //    })
+  // },
+  mounted:function() {
+       this.airlist = this.airlist.map(function (item) {
+           for (var i in item) {
+               if (i.substring(i.length - 3, i.length) == "UOD" && item[i] == 1) {
+                   item[i] = "url(./css/images/baowenUp.png)";
+               } else if (i.substring(i.length - 3, i.length) == "UOD" && item[i] == -1) {
+                   item[i] = "url(./css/images/baowenDown.png)";
+               }
+           }
+           return item;
+       })
+
+       for (let k=1;k<this.airlist.length;k++) {
+          let d=k-1;
+          if(this.airlist[k].CCCC == this.airlist[d].CCCC ){
+             this.airlist[k].CCCCRowCount = false
+          }
+       }
+  }
+})      
+</script>
+<script src="js/zhiding.js" type="text/javascript"></script>
+</body>
+</html>

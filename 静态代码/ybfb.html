@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预报发布</title>
+    <script type="text/javascript">
+        $(function(){
+
+            $(".info-send").click(function(){
+                $(".dialog-box").show();
+                $(".backdrop-box").show().css("opacity","0.5");
+                $("body").css("overflow","hidden");
+                $(".main-box").show();
+                $(".history-box").hide();
+                $(".message-box").hide();
+            });
+            $(".edit-pop").click(function(){
+                $(".dialog-num").show();
+                $(".backdrop-box").show().css("opacity","0.5");
+                $("body").css("overflow","hidden");
+            });
+            $(".edit-demo").click(function(){
+                $(".dialog-demo").show();
+                $(".backdrop-box").show().css("opacity","0.5");
+                $("body").css("overflow","hidden");
+            });
+            $(".backdrop-box").click(function(){
+                $(".dialog-box").hide();
+                $(".backdrop-box").hide().css("opacity","0");
+                $("body").css("overflow","auto");
+                $(".sec-mid li").removeClass("yb-li-on");
+            });
+
+            $(".mid1 strong").click(function(){
+                $(".mid1 strong").removeClass("title-on");
+                $(this).addClass("title-on");
+            });
+            $(".pic-classify a").click(function(){
+                $(".pic-classify a").removeClass("aa-on");
+                $(this).addClass("aa-on");
+            });
+            /*导航切换*/
+            $(".sec-mid li").click(function(){
+                $(".sec-mid li").removeClass("yb-li-on");
+                $(this).addClass("yb-li-on");
+            });
+            /*短信页面打开关闭*/
+            $(".message-manage").click(function(){
+               $(".main-box").hide();
+                $(".history-box").hide();
+                $(".message-box").show();
+            });
+            $(".close-btn").click(function(){
+                $(".main-box").show();
+                $(".history-box").hide();
+                $(".message-box").hide();
+                $(".sec-mid li").removeClass("yb-li-on");
+            });
+            /*短信管理表格tr样式*/
+            $(".history-table tr:even").css("background","#f7f8fa");
+            /*历史记录开关*/
+            $(".history-manage").click(function(){
+                $(".main-box").hide();
+                $(".history-box").show();
+                $(".message-box").hide();
+            });
+            /*短信 号码 模板 切换*/
+            $(".m-num").click(function(){
+                $(".move").hide();
+                $(".move-1").show();
+                $(".left-arr li").removeClass("left-arr-on");
+                $(".left-arr .m-num").addClass("left-arr-on");
+                $(".left-arr").show();
+            });
+            $(".m-demo").click(function(){
+                $(".move").hide();
+                $(".move-3").show();
+                $(".left-arr li").removeClass("left-arr-on");
+                $(".left-arr .m-demo").addClass("left-arr-on");
+                $(".left-arr").show();
+            });
+            $(".m-m").click(function(){
+                $(".move").hide();
+                $(".move-2").show();
+                $(".left-arr").hide();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="sec-nav-line">
+        <ul class="sec-mid">
+            <li class="info-send"><a><i class="fa fa-pencil-square-o"></i><span>信息发布</span></a></li>
+            <li class="message-manage"><a><i class="fa fa-comments-o"></i><span>短信管理</span></a></li>
+            <li class="history-manage"><a><i class="fa fa-file-text-o"></i><span>历史信息</span></a></li>
+        </ul>
+    </div>
+    <div class="main-box">
+        <div class="col-box">
+            <div class="info-in">
+                <div class="title">时段预报</div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-box">
+            <div class="info-in">
+                <div class="title">危险天气预警</div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-box h2">
+            <div class="info-in">
+                <div class="title">当日形势</div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-box h2">
+            <div class="info-in">
+                <div class="title">春运天气提醒</div>
+                <div class="list-box">
+                    <p><a href="#">预计北京时间18日09:40至18日14:00，青岛机场短时有西北大风天气。最大平均风速：12m/s，最大阵风：17m/s五边及跑道附近存在风切变 。</a> </p>
+                    <div class="time-info">
+                        <span>发布人：<a href="#">牛小伟</a></span>
+                        <span>发布时间：<a href="#">2017-4-19 10:55</a></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="dialog-box dialog-size2">
+            <div class="dialog-title1">
+                <span class="classify-choose">
+                    <select>
+                        <option>预告类型1</option>
+                        <option>预告类型2</option>
+                        <option>预告类型3</option>
+                    </select>
+                </span>
+                <span class="sending-name">信息发布<i class="fa fa-pencil-square-o"></i></span>
+            </div>
+            <div class="send-title">信息发布信息名称</div>
+            <div class="text-area">
+                <textarea></textarea>
+            </div>
+            <div class="sending-btn"><input type="button" value="发布"> </div>
+        </div>
+    </div>
+    <div class="message-box" style="display:none;">
+        <span class="close-btn"><i class="fa fa-remove"></i></span>
+        <!--号码管理弹出窗-->
+        <div class="dialog-box dialog-size3 dialog-num">
+            <div class="dialog-title1">信息发布</div>
+            <table>
+                <tr>
+                    <td width="20%">号 码</td>
+                    <td width="40%">
+                        <span class="input-text"><input type="text"> </span>
+                    </td>
+                    <td width="40%"></td>
+                </tr>
+                <tr>
+                    <td width=20%">姓 名</td>
+                    <td width="40%">
+                        <span class="input-text"><input type="text"> </span>
+                    </td>
+                    <td width="40%"></td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="2">
+                        <span class="text-area">
+                        <textarea></textarea>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <input class="sending-btn" type="button" value="确定">
+        </div>
+        <!--模板管理弹出窗-->
+        <div class="dialog-box dialog-size3 dialog-demo">
+            <div class="dialog-title1">模板编辑</div>
+            <table>
+                <tr>
+                    <td width="40%">模板名称</td>
+                    <td width="40%">
+                        <span class="input-text"><input type="text"> </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="40%">发布单位</td>
+                    <td width="40%">
+                        <span class="input-text"><input type="text"> </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>模板内容</td>
+                    <td>
+                        <span class="text-area">
+                        <textarea></textarea>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <input class="sending-btn" type="button" value="确定">
+        </div>
+        <div class="message-mid">
+                <div class="move move-1">
+                    <table class="history-table">
+                        <tr>
+                            <th>编号</th>
+                            <th>号码</th>
+                            <th>短信内容</th>
+                            <th>日期</th>
+                            <th>发布人</th>
+                            <th>操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="edit-pop"><i class="fa fa-plus"></i> 添加</a></th>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-pop"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-pop"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-pop"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-pop"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-pop"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="move move-2">
+                            <div class="message-title"><span>短信预警发布</span></div>
+                            <span class="classify-choose">
+                                    <select>
+                                        <option>短信模板A</option>
+                                        <option>短信模板B</option>
+                                        <option>短信模板C</option>
+                                    </select>
+                            </span>
+                            <span class="fun-btn fun1 m-num">号码管理</span>
+                            <span class="fun-btn fun2 m-demo">模板管理</span>
+                            <span class="message-prev">阿斯顿发发大水发沙发沙发斯蒂芬阿斯顿发发大水发沙发沙发斯蒂芬阿斯顿发发大水发沙发沙发斯蒂芬</span>
+                            <span class="message-text">
+                                <textarea></textarea>
+                            </span>
+                            <span class="message-sending"><input type="button" value="发布"><i class="fa fa-pencil-square-o"></i></span>
+                    <span class="message-unit"><input type="checkbox">发布单位</span>
+                    <span class="message-unit"><input type="checkbox">发布时间</span>
+                            <div class="message-title"><span>短信历史记录</span></div>
+                            <table class="history-table">
+                                <tr>
+                                    <th>编号</th>
+                                    <th>号码</th>
+                                    <th>短信内容</th>
+                                    <th>日期</th>
+                                    <th>发布人</th>
+                                    <th>状态</th>
+                                </tr>
+                                <tr>
+                                    <td>00017</td>
+                                    <td>4989489484</td>
+                                    <td>短信的内容</td>
+                                    <td>20170628</td>
+                                    <td>牛小伟</td>
+                                    <td><strong class="success">成功</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>00017</td>
+                                    <td>4989489484</td>
+                                    <td>短信的内容</td>
+                                    <td>20170628</td>
+                                    <td>牛小伟</td>
+                                    <td>成功</td>
+                                </tr>
+                                <tr>
+                                    <td>00017</td>
+                                    <td>4989489484</td>
+                                    <td>短信的内容</td>
+                                    <td>20170628</td>
+                                    <td>牛小伟</td>
+                                    <td><strong class="default">失败</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>00017</td>
+                                    <td>4989489484</td>
+                                    <td>短信的内容</td>
+                                    <td>20170628</td>
+                                    <td>牛小伟</td>
+                                    <td>成功</td>
+                                </tr>
+                                <tr>
+                                    <td>00017</td>
+                                    <td>4989489484</td>
+                                    <td>短信的内容</td>
+                                    <td>20170628</td>
+                                    <td>牛小伟</td>
+                                    <td>成功</td>
+                                </tr>
+                            </table>
+                            <div class="clear"></div>
+                </div>
+                <div class="move move-3">
+                    <table class="history-table">
+                        <tr>
+                            <th>编号</th>
+                            <th>号码</th>
+                            <th>短信内容</th>
+                            <th>日期</th>
+                            <th>发布人</th>
+                            <th>操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="edit-pop"><i class="fa fa-plus"></i> 添加</a></th>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-demo"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-demo"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-demo"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-demo"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>00017</td>
+                            <td>4989489484</td>
+                            <td>短信的内容</td>
+                            <td>20170628</td>
+                            <td>牛小伟</td>
+                            <td><a href="#" class="edit-demo"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;<a href="#"><i class="fa fa-remove"></i> 删除</a></td>
+                        </tr>
+                    </table>
+                </div>
+            <ul class="left-arr" style="display:none;">
+                <li class="m-m left-arr-on">短信管理</li>
+                <li class="m-num">号码管理</li>
+                <li class="m-demo">模板管理</li>
+            </ul>
+                <div class="clear"></div>
+        </div>
+
+    </div>
+
+
+    <div class="history-box" style="display:none;">
+        <span class="close-btn"><i class="fa fa-remove"></i></span>
+        <div class="history-mid">
+            <table class="history-table">
+                <tr>
+                    <th>编号</th>
+                    <th>号码</th>
+                    <th>短信内容</th>
+                    <th>日期</th>
+                    <th>发布人</th>
+                    <th>状态</th>
+                </tr>
+                <tr>
+                    <td>00017</td>
+                    <td>4989489484</td>
+                    <td>短信的内容</td>
+                    <td>20170628</td>
+                    <td>牛小伟</td>
+                    <td><strong class="success">成功</strong></td>
+                </tr>
+                <tr>
+                    <td>00017</td>
+                    <td>4989489484</td>
+                    <td>短信的内容</td>
+                    <td>20170628</td>
+                    <td>牛小伟</td>
+                    <td>成功</td>
+                </tr>
+                <tr>
+                    <td>00017</td>
+                    <td>4989489484</td>
+                    <td>短信的内容</td>
+                    <td>20170628</td>
+                    <td>牛小伟</td>
+                    <td><strong class="default">失败</strong></td>
+                </tr>
+                <tr>
+                    <td>00017</td>
+                    <td>4989489484</td>
+                    <td>短信的内容</td>
+                    <td>20170628</td>
+                    <td>牛小伟</td>
+                    <td>成功</td>
+                </tr>
+                <tr>
+                    <td>00017</td>
+                    <td>4989489484</td>
+                    <td>短信的内容</td>
+                    <td>20170628</td>
+                    <td>牛小伟</td>
+                    <td>成功</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <div class="backdrop-box"></div>
+</body>
+</html>

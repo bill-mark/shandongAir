@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预告图</title>
+    <link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css">
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/datepicker-zh-CN.js"></script>
+    <script type="text/javascript">
+        $(function(){
+                $(".navIn li a").click(function(){
+                    $(".navIn li a").removeClass("a-on");
+                    $(this).addClass("a-on");
+                });
+            $(".ygt-toolbox").append('<span class="tools" style="display:none;"><span><i class="fa fa-search fa-tools"></i></span><span><i class="fa fa-save fa-tools"></i></span><span><i class="fa fa-print fa-tools"></i></span></span>');
+            $(".ygt-toolbox").click(function(e){
+                $(".ygt-toolbox .tools").hide();
+                $(this).children("span").toggle();
+                e.stopPropagation();
+            });
+            $(document).click(function(){
+                $(".ygt-toolbox .tools").hide();
+            });
+
+            /*历史查询*/
+            $(".time-box ul li:odd").addClass("li-odd");
+            $(".time-box ul li").click(function(){
+                $(".time-box ul li").removeClass("time-on");
+                $(this).addClass("time-on");
+            });
+
+                $(".history-btn").click(function(){
+                    $(".dialog-box").show();
+                    $(".backdrop-box").show().css("opacity","0.5");
+                    $("body").css("overflow","hidden");
+                });
+                $(".backdrop-box").click(function(){
+                    $(".dialog-box").hide();
+                    $(".backdrop-box").hide().css("opacity","0");
+                    $("body").css("overflow","auto");
+                });
+
+                $(".mid1 strong").click(function(){
+                    $(".mid1 strong").removeClass("title-on");
+                    $(this).addClass("title-on");
+                });
+                $(".pic-classify a").click(function(){
+                    $(".pic-classify a").removeClass("aa-on");
+                    $(this).addClass("aa-on");
+                });
+
+        });
+    </script>
+</head>
+<body>
+<div class="navIn">
+    <ul class="mid-ygt">
+        <li><a href="#" class="a-on">重要天气预告图</a></li>
+        <li><a href="#">高空风温预告图</a></li>
+    </ul>
+</div>
+<div class="ygt-content">
+    <div class="title-line">
+        民航气象中心<span class="history-btn"><i class="fa fa-history"></i>历史记录</span>
+    </div>
+    <table class="ygt-table">
+        <tr>
+            <td class="td-b">发布中心</td>
+            <td class="td-b">区域</td>
+            <td class="td-b">高度层</td>
+            <td>01日 00时</td>
+            <td>01日 06时</td>
+            <td>01日 12时</td>
+            <td>01日 18时</td>
+            <td>02日 00时</td>
+            <td>02日 06时</td>
+            <td>02日 12时</td>
+            <td>02日 18时</td>
+            <td>03日 00时</td>
+            <td>03日 06时</td>
+            <td>03日 12时</td>
+            <td>03日 18时</td>
+            <td>04日 00时</td>
+        </tr>
+        <tr>
+            <td class="td-b">民航气象中心</td>
+            <td class="td-b" rowspan="2">中国</td>
+            <td class="td-b">高层</td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#">
+
+                </a>
+            </td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+        </tr>
+        <tr>
+            <td class="td-b">民航气象中心</td>
+            <td class="td-b">高层</td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+        </tr>
+    </table>
+
+    <div class="title-line">
+        民航气象中心<span class="history-btn"><i class="fa fa-history"></i>历史记录</span>
+    </div>
+    <table class="ygt-table">
+        <tr>
+            <td class="td-b">发布中心</td>
+            <td class="td-b">区域</td>
+            <td class="td-b">高度层</td>
+            <td>01日 00时</td>
+            <td>01日 06时</td>
+            <td>01日 12时</td>
+            <td>01日 18时</td>
+            <td>02日 00时</td>
+            <td>02日 06时</td>
+            <td>02日 12时</td>
+            <td>02日 18时</td>
+            <td>03日 00时</td>
+            <td>03日 06时</td>
+            <td>03日 12时</td>
+            <td>03日 18时</td>
+            <td>04日 00时</td>
+        </tr>
+        <tr>
+            <td class="td-b">民航气象中心</td>
+            <td class="td-b" rowspan="2">中国</td>
+            <td class="td-b">高层</td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#">
+
+            </a>
+            </td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+        </tr>
+        <tr>
+            <td class="td-b">民航气象中心</td>
+            <td class="td-b">高层</td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+            <td><a class="tool-empty ygt-toolbox" href="#"></a></td>
+        </tr>
+    </table>
+    <div class="dialog-box">
+        <div class="dialog-title">历史查询：
+            <div class="mid2">
+                <strong class="title-on">民航气象中心</strong><strong>伦敦</strong><strong>地区气象中心</strong><strong>华盛顿</strong>
+            </div>
+        </div>
+        <div class="pic-classify">
+            <span class="area-classify">
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </span>
+            <ul>
+                <li><a href="#" class="aa-on">高层</a></li>
+                <li><a href="#">中层</a></li>
+                <li><a href="#">低层</a></li>
+            </ul>
+        </div>
+        <div class="time-search">
+            <span><input type="text" id="datepicker"></span><strong>至</strong>
+            <span><input type="text" id="datepicker1"></span>
+            <span class="time-search-btn"><input type="button" value="开始查询"> </span>
+        </div>
+        <div class="time-box history-time-box">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">2017/4/2 09:03:00</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="backdrop-box"></div>
+</body>
+</html>

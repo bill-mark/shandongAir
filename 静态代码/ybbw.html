@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预报报文</title>
+    <script type="text/javascript">
+        $(function(){
+            /*弹窗*/
+            $(".cf-pop").click(function(){
+                $(".vol-rep-pop").show();
+                $(".backdrop-box").show().css("opacity","0.5");
+                $("body").css("overflow","hidden");
+            });
+            $(".backdrop-box").click(function(){
+                $(".vol-rep-pop").hide();
+                $(".backdrop-box").hide().css("opacity","0");
+                $("body").css("overflow","auto");
+            });
+            $(".pop-title span").click(function(){
+                $(".vol-rep-pop").hide();
+                $(".backdrop-box").hide().css("opacity","0");
+                $("body").css("overflow","auto");
+            });
+        });
+    </script>
+    <style type="text/css">
+       .tc-father{
+          z-index:100;
+          position:absolute;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.5);
+          top: 0;
+       }
+       .tc-div{
+          width:580px;
+          height:auto;
+          position:fixed;
+          top:300px;
+          left:50%;
+          margin-left:-290px;
+          z-index:999;
+          padding:10px;
+          background:#fcfcfc;
+          -webkit-box-shadow:0 5px 15px rgba(0,0,0,.6);
+          -moz-box-shadow:0 5px 15px rgba(0,0,0,.6);
+          box-shadow:0 5px 15px rgba(0,0,0,.6);
+       } 
+       .tc-div-1 span{
+           display:block;
+           float:right;
+           cursor:pointer;
+       }
+       .tc-div-1 span .fa-remove{
+           color:#11426d;
+           -webkit-transition: color .3s;
+           -moz-transition: color .3s;
+           -ms-transition: color .3s;
+           -o-transition: color .3s;
+           transition: color .3s;
+       }
+       .tc-div-1 span .fa-remove:hover{
+           color:#2c93ed;
+       }
+       .tc-div-2{
+           padding-top:10px;
+           width:100%;
+           line-height:26px;
+           font-size:14px;
+           color:#333;
+       }
+       .tc-div-2 table{
+           width:100%;
+           text-align:center;
+       }
+       .tc-div-2 table tr{
+           background:#f5f5f5;
+       }
+       .tc-div-2 table tr:first-child{
+           background:#fff;
+       }
+       .tc-div-2 table tr:last-child{
+           background:#fff;
+       }
+       .tc-div-2 table td:first-child{
+           font-weight:bold;
+           width:100px;
+           text-align:left;
+       }
+       .tc-fengshun{
+           display: block;
+           width: 16px;
+           height: 16px;
+           position: absolute;
+           top: 63%;
+           margin-top: -8px;
+           cursor: pointer;
+           border-radius: 8px;
+           left: -24px;
+       }
+       a .status {
+           right: -12px;
+       }
+       a .warn {
+            left: -21px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+       }
+       
+       .listNav-sk .airport-name{
+           width:12%;
+       }
+       .list-sk .airport-name{
+           width:12%;
+       }
+       .cloud-name{
+           width:9.4% !important;
+       }
+
+       .listNav-sk .cloud-a{
+           
+       }
+       .list-sk .cloud-a{
+           float: left;
+       }
+       .listNav-sk .skbw-wendu{
+           width: 5%;
+       }
+       .list-sk .skbw-wendu{
+           width: 5%;
+       }
+       .list-sk>ul>li>ul>li a{
+            
+       }
+       .listNav-sk ul li {
+           width: 6%;
+       }
+       .list-sk > ul > li > ul > li {
+       
+           width: 6%;
+          
+       }
+
+       .bw-leixing{
+           width: 4% !important
+       }
+       .list-sk > ul > li > ul > li a .classify-toggle {
+           left: -18px;
+       }
+       .bw-fbtime{
+          width: 5% !important
+       }
+       .bw-yxtime{
+          width: 10% !important
+       }
+       .bw-bjfx{
+          width: 4.3% !important
+       }
+       .bw-sfce{
+        width: 4% !important
+       }
+    </style>
+</head>
+<body>
+<div class="listNav listNav-sk" id="fix">
+    <ul>
+        <li class="bw-leixing"><a href="#">报文类型</a></li>
+        <li class="airport-name"><a href="#">机场名称</a></li>
+        <li class="bw-fbtime"><a href="#">发布时间</a></li>
+        <li class="bw-yxtime"><a href="#">有效时间</a></li>
+        <li class="bw-bjfx"><a href="#">平均风向(°)</a></li>
+        <li><a href="#">平均风速(M/S)</a></li>
+        <li><a href="#">阵风风速(M/S)</a></li>
+        <li class="bw-sfce"><a href="#">顺风/侧风</a></li>
+        <li><a href="#">能见度(M)</a></li>
+        <li><a href="#">跑道视程(M)</a></li>
+        <li><a href="#">天气现象</a></li>
+        <li class="cloud-name"><a href="#" class="cloud-a">云</a></li>
+        <li class="skbw-wendu"><a href="#">最高温度(°)</a></li>
+        <li class="skbw-wendu"><a href="#">最低温度(°)</a></li>
+        <li class="skbw-wendu"><a href="#">湿度(°)</a></li>
+        <li><a href="#">起飞/降落标准</a></li>
+    </ul>
+</div>
+<div class="list-sk" id="baowentable">
+    <ul >
+        <li v-bind:class=item.classNm
+            v-bind:style="{display:item.display}"
+            v-for="(item,index) in baowenlist"       
+        >
+           <ul>
+               <li class="list-icons-box bw-leixing">
+                     <a>{{item.TT}}
+                     <span v-if="item.ISHAVECHANGE" class="list-icons classify-toggle toggle-open"></span>                     
+                     </a>
+                     &nbsp
+               </li>
+               <li class="airport-name">
+                     <a href="#">
+                        <span>{{item.AIRPORTNAME}}</span> 
+                        &nbsp
+                     </a>
+               </li>
+               <li class="bw-fbtime"><a href="#" style="padding-left: 0px">{{item.REFTIME}} &nbsp</a></li>
+               <li class="bw-yxtime"><a href="#" style="padding-left: 0px">{{item.VTIME}} &nbsp</a></li>
+               <li class="bw-bjfx"><a href="#">{{item.WINDDIR}} &nbsp</a></li>
+               <li><a href="#">
+                       {{item.WINDSPEED}} &nbsp
+                       <span class="list-icons status" v-bind:style="{'background-image':item.WINDSPEED_UOD}"></span>
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.WINDSPEED_ALARMCOLOR}"></span>
+                    </a>
+               </li>
+               <li>
+                   <a href="#">
+                       {{item.GUSTSPEED}}  
+                       &nbsp
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.GUSTSPEED_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li class="bw-sfce"><a href="#" class="cf-pop"><i class="fa fa-list" v-on:click="clickList(index)"></i> </a></li>
+               <li>
+                   <a href="#">
+                        {{item.VISPREV}}&nbsp 
+                        <span class="list-icons status" v-bind:style="{'background-image':item.VISPREV_UOD}"></span>
+                        <span class="list-icons warn" v-bind:style="{'background-color':item.VISPREV_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                        {{item.RVR}}&nbsp
+                        <span class="list-icons status" v-bind:style="{'background-image':item.RVR_UOD}"></span>
+                        <span class="list-icons warn" v-bind:style="{'background-color':item.RVR_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                        {{item.WEATHER}}&nbsp
+                        <span class="list-icons warn" v-bind:style="{'background-color':item.RVR_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li class="cloud-name">
+                   <a href="#" class="cloud-a">
+                       {{item.CLOUD}} &nbsp
+                       <span class="list-icons status" v-bind:style="{'background-image':item.CLOUD_UOD}"></span>
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.CLOUD_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li class="skbw-wendu">
+                   <a href="#" >
+                       {{item.MAXTEMP}} &nbsp
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.MAXTEMP_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li class="skbw-wendu">
+                   <a href="#" >
+                       {{item.MINTEMP}} &nbsp
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.MINTEMP_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li class="skbw-wendu">
+                   <a href="#" >
+                       {{item.HUMID}} &nbsp
+                       <span class="list-icons status" v-bind:style="{'background-image':item.HUMID_UOD}"></span>
+                       <span class="list-icons warn" v-bind:style="{'background-color':item.HUMID_ALARMCOLOR}"></span>
+                   </a>
+               </li>
+               <li><a href="#"><i class="fa fa-link"></i> </a> </li>
+           </ul> 
+        </li>     
+    </ul>
+
+    <div v-if="isShow" class="tc-father" v-on:click="clickTc">
+        <div class="tc-div">   
+            <div class="tc-div-1">
+                {{fengairname}}
+                <span v-on:click="clickTc">
+                   <i class="fa fa-remove" v-on:click="clickTc"></i>
+                </span>      
+            </div>
+            <div class="tc-div-2">
+                <table>
+                    <tr>
+                        <td>跑道编号：</td>
+                        <td v-for="item in fengpaodao">
+                            {{item}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>顺风(M/S)：</td>
+                        <td v-for="item in fengshun">
+                            {{item}}
+                            <span class="tc-fengshun"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>侧风(M/S)：</td>
+                        <td v-for="item in fengni">
+                            {{item}}
+                        </td>
+                    </tr>
+                </table>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<script>
+new Vue({
+  el:'#baowentable',
+  data:{
+    isShow:false,
+    fengairname:null,
+    fengshun:null,
+    fengni:null,
+    fengpaodao:null,
+    baowenlist:[
+        {
+          "ID": "274937097",
+          "TT": "SA",  //报文种类
+          "CCCC": "VEGT", //子报文机场
+          "AIRPORTNAME": "VEGT 高哈蒂,印度\/高哈蒂", //机场名
+          "REFTIME": "2017\/6\/18", //发布时间
+          "VTIME": "2017062909/2017063009", //预报起止时间
+          "WINDDIR": "230", //平均风向
+          "WINDSPEED": "2", //平均风速
+          "GUSTSPEED": "3",  //阵风风速
+          "PARALLEL_WIND": "02,-1.8|20,-1.8", //顺风
+          "CROSS_WIND": "02,0.9|20,0.9",  //侧风
+          "VISPREV": "3000", //能见度
+          "RVR": "400",  //视程
+          "WEATHER": "BR", //天气现象
+          "TEMP": "30", //温度
+          "MAXTEMP": "35",//最高温
+          "MINTEMP": "18",//最低温
+          "HUMID": "0.84",//湿度
+          "CLOUD": "SCT 480 BKN 3000",//云
+          "ISHAVECHANGE": "2", //有1个子报文
+          "PARENTID": "0",
+          "WINDSPEED_ALARMLEVEL": "",//平均风速
+          "WINDSPEED_ALARMCOLOR": "#d90d0d",
+          "WINDSPEED_UOD": "1",
+          "GUSTSPEED_ALARMLEVEL": "",//阵风风速
+          "GUSTSPEED_ALARMCOLOR": "#d90d0d",
+          "PARALLEL_WIND_ALARMLEVEL": "",//顺风
+          "PARALLEL_WIND_ALARMCOLOR": "#d90d0d",
+          "CROSS_WIND_ALARMLEVEL": "",//侧风
+          "CROSS_WIND_ALARMCOLOR": "#d90d0d",
+          "VISPREV_ALARMLEVEL": "",//能见度
+          "VISPREV_ALARMCOLOR": "#d90d0d",
+          "VISPREV_UOD": "1",
+          "RVR_ALARMLEVEL": "",//视程
+          "RVR_ALARMCOLOR": "#d90d0d",
+          "RVR_UOD": "1",
+          "WEATHER_ALARMLEVEL": "",//天气现象
+          "WEATHER_ALARMCOLOR": "#d90d0d",
+          "CLOUD_ALARMLEVEL": "",//云
+          "CLOUD_ALARMCOLOR": "#d90d0d",
+          "CLOUD_UOD": "-1", 
+          "TEMP_ALARMLEVEL": "",//温度
+          "TEMP_ALARMCOLOR": "#d90d0d",
+          "TEMP_UOD": "1",
+          "MAXTEMP_ALARMLEVEL": "",//最高温
+          "MAXTEMP_ALARMCOLOR": "#d90d0d",        
+          "MINTEMP_ALARMLEVEL": "",//最低温
+          "MINTEMP_ALARMCOLOR": "#d90d0d",
+          "HUMID_ALARMLEVEL": "",//湿度                  
+          "HUMID_ALARMCOLOR": "#d90d0d",
+          "HUMID_UOD": "1",
+        },
+        {
+          "ID": "274937098",
+          "TT": "BECMG",
+          "CCCC": "VEGT",
+          "AIRPORTNAME": "VEGT 高哈蒂,印度\/高哈蒂",
+          "REFTIME": "2017\/6\/18",
+          "VTIME": "",
+          "WINDDIR": "",
+          "WINDSPEED": "",
+          "GUSTSPEED": "",
+          "PARALLEL_WIND": "",
+          "CROSS_WIND": "",
+          "VISPREV": "5000",
+          "RVR": "",
+          "WEATHER": "BR",
+          "TEMP": "",
+          "MAXTEMP": "",
+          "MINTEMP": "",
+          "HUMID": "-1",
+          "CLOUD": "",
+          "ISHAVECHANGE": "0",
+          "PARENTID": "274937097"
+        },
+        {
+          "ID": "274938444",
+          "TT": "SA",
+          "CCCC": "VEGY",
+          "AIRPORTNAME": "VEGY 格雅\/格雅\/印度",
+          "REFTIME": "2017\/6\/18",
+          "VTIME": "2017062909/2017063009",
+          "WINDDIR": "280",
+          "WINDSPEED": "16",
+          "GUSTSPEED": "4",
+          "PARALLEL_WIND": "10,-6.1|28,-6.0",
+          "CROSS_WIND": "10,0.4|28,0.4",
+          "VISPREV": "6000",
+          "RVR": "1000",
+          "WEATHER": "CR",
+          "TEMP": "40",
+          "MAXTEMP": "",
+          "MINTEMP": "",
+          "HUMID": "0.34",
+          "CLOUD": "SCT 540",
+          "ISHAVECHANGE": "1",
+          "PARENTID": "0",
+          "WINDSPEED_ALARMLEVEL": "",//平均风速
+          "WINDSPEED_ALARMCOLOR": "#d90d0d",
+          "WINDSPEED_UOD": "-1",
+          "GUSTSPEED_ALARMLEVEL": "",//阵风风速
+          "GUSTSPEED_ALARMCOLOR": "#d90d0d",
+          "PARALLEL_WIND_ALARMLEVEL": "",//顺风
+          "PARALLEL_WIND_ALARMCOLOR": "#d90d0d",
+          "CROSS_WIND_ALARMLEVEL": "",//侧风
+          "CROSS_WIND_ALARMCOLOR": "#d90d0d",
+          "VISPREV_ALARMLEVEL": "",//能见度
+          "VISPREV_ALARMCOLOR": "#d90d0d",
+          "VISPREV_UOD": "-1",
+          "RVR_ALARMLEVEL": "",//视程
+          "RVR_ALARMCOLOR": "#d90d0d",
+          "RVR_UOD": "1",
+          "WEATHER_ALARMLEVEL": "BN",//天气现象
+          "WEATHER_ALARMCOLOR": "#d90d0d",
+          "CLOUD_ALARMLEVEL": "",//云
+          "CLOUD_ALARMCOLOR": "#d90d0d",
+          "CLOUD_UOD": "-1", 
+          "TEMP_ALARMLEVEL": "",//温度
+          "TEMP_ALARMCOLOR": "#d90d0d",
+          "TEMP_UOD": "1",
+          "MAXTEMP_ALARMLEVEL": "",//最高温
+          "MAXTEMP_ALARMCOLOR": "#d90d0d",        
+          "MINTEMP_ALARMLEVEL": "",//最低温
+          "MINTEMP_ALARMCOLOR": "#d90d0d",
+          "HUMID_ALARMLEVEL": "",//湿度                  
+          "HUMID_ALARMCOLOR": "#d90d0d",
+          "HUMID_UOD": "-1",
+        },
+        {
+          "ID": "274938445",
+          "TT": "NOSIG",
+          "CCCC": "VEGY",
+          "AIRPORTNAME": "VEGY 格雅\/格雅\/印度",
+          "REFTIME": "2017\/6\/18",
+          "VTIME": "",
+          "WINDDIR": "",
+          "WINDSPEED": "",
+          "GUSTSPEED": "",
+          "PARALLEL_WIND": "",
+          "CROSS_WIND": "",
+          "VISPREV": "",
+          "RVR": "",
+          "WEATHER": "",
+          "TEMP": "",
+          "MAXTEMP": "",
+          "MINTEMP": "",
+          "HUMID": "-1",
+          "CLOUD": "",
+          "ISHAVECHANGE": "0",
+          "PARENTID": "274938444"
+        }
+    ]
+  }, 
+  created: function (){
+     this.$http.get("http://rapapi.org/mockjs/21289/sh/bw?")
+     .then( (res)=>{
+           this.baowenlist = res.data
+     },(err) =>{
+        console.log(err)
+     })
+  },
+  methods:{ 
+     clickList:function (index){
+        this.isShow = true
+        this.fengairname = this.baowenlist[index].AIRPORTNAME
+        this.fengpaodao = this.baowenlist[index].PARALLEL_WIND.split("|").map(function (item) {
+                return item.split(",");
+        }).map(function (item) {
+                return item[0];
+        });
+        this.fengshun = this.baowenlist[index].PARALLEL_WIND.split("|").map(function (item) {
+                return item.split(",");
+        }).map(function (item) {
+                return item[1];
+        });
+        this.fengni = this.baowenlist[index].CROSS_WIND.split("|").map(function (item) {
+                return item.split(",");
+        }).map(function (item) {
+                return item[1];
+        });  
+     },
+     clickTc:function(){
+        this.isShow = !this.isShow
+     }
+  },
+  mounted:function (){
+    this.baowenlist = this.baowenlist.map(function (item) {
+        for (var i in item) {
+            if (i.substring(i.length - 3, i.length) == "UOD" && item[i] == 1) {
+                item[i] = "url(./css/images/baowenUp.png)";
+            } else if (i.substring(i.length - 3, i.length) == "UOD" && item[i] == -1) {
+                item[i] = "url(./css/images/baowenDown.png)";
+            }
+        }
+        return item;
+    })
+    for( let i=0;i<this.baowenlist.length;i++) {
+        if(this.baowenlist[i].ISHAVECHANGE == 0){
+            this.baowenlist[i].ISHAVECHANGE = false
+            this.baowenlist[i].classNm = 'dark-line'
+            this.baowenlist[i].display = 'none'          
+        }
+    }
+  }
+})    
+</script>
+<script src="js/zhiding.js" type="text/javascript"></script>
+</body>
+</html>
