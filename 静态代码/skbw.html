@@ -23,7 +23,11 @@
             });
         });
     </script>
-    <style type="text/css">
+     <style type="text/css">
+       .list-sk > ul > li {
+           min-height: 48px !important;          
+       }
+
        .tc-father{
           z-index:100;
           position:absolute;
@@ -102,24 +106,24 @@
            right: -12px;
        }
        a .warn {
-            left: 0px;
+            left: -19px;
             -webkit-border-radius: 8px;
             -moz-border-radius: 8px;
             border-radius: 8px;
        }
-       .listNav-sk ul li{
-           width:6.7%;
-           text-align:center;
-           padding:0;
-       }
-       .listNav-sk .airport-name{
+       
+       /*.listNav-sk .airport-name{
            width:12%;
        }
        .list-sk .airport-name{
            width:12%;
+       }*/
+       .airport-name{
+         width: 16% !important;
        }
        .cloud-name{
-           width:9.4% !important;
+           width:16% !important;
+           padding-left: 16px !important;
        }
 
        .listNav-sk .cloud-a{
@@ -127,28 +131,121 @@
        }
        .list-sk .cloud-a{
            float: left;
+
        }
-       .listNav-sk .skbw-wendu{
+       /*.listNav-sk .skbw-wendu{
            width: 5%;
        }
        .list-sk .skbw-wendu{
            width: 5%;
+       }*/
+       .skbw-wendu{
+          width: 5% !important;
+          margin-left: 10px !important
        }
        .list-sk>ul>li>ul>li a{
-            padding-left: 17px;
+            
+       }
+       .listNav-sk ul li {
+           width: 5.5%;
+       }
+       .list-sk > ul > li > ul > li {    
+           width: 5.5%;        
+       }
+
+       .bw-leixing{
+           width: 7% !important
+       }
+       .list-sk > ul > li > ul > li a .classify-toggle {
+           left: -18px;
+       }
+       .bw-fbtime{
+          width: 5.5% !important
+       }
+       .bw-yxtime{
+          width: 10% !important
+       }
+       .bw-bjfx{
+          width: 4.3% !important
+       }
+       .bw-sfce{
+        width: 4% !important
+       }
+       .bw-jcmc{
+        line-height: 0px !important
+       }
+       .bw-ul1th{
+        display: inline-block;
+        min-height: 48px;
+        height: auto;
+        width: 100%;
+       }
+       .airport-name-div1{
+         text-align:center;width:100%;display:table;
+       }
+       .airport-name-div2{
+         color: #1a3e72;
+         font-size: 13px;
+         display:table-cell;
+         vertical-align:middle;
+         height: 48px;
+       }
+       .cloud-div1{
+        text-align:center;width:100%;display:table;
+       }
+       .cloud-div2{
+         color: #1a3e72;
+         font-size: 13px;
+         display:table-cell;
+         vertical-align:middle;
+         height: 48px;
+         position: relative;
+       }
+       .cloud-yanse{
+            display: block;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            cursor: pointer;
+            left: -19px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+       }
+       .cloud-jiantou{
+            right: -12px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            cursor: pointer;
+       }
+       .cloud-div2-span{
+
+       }
+       .bw-bwlx{
+         float: left;
+         margin-left: 19px;
+       }
+       body{
+        min-width: 1670px;
        }
     </style>
 </head>
 <body>
 <div class="listNav listNav-sk" id="fix">
     <ul>
-        <li><a href="#">报文类型</a></li>
+        <li class="bw-leixing"><a href="#">报文类型</a></li>
         <li class="airport-name"><a href="#">机场名称</a></li>
-        <li><a href="#">发布时间</a></li>
-        <li><a href="#">平均风向(°)</a></li>
+        <li class="bw-fbtime"><a href="#">发布时间</a></li>
+        <li class="bw-bjfx"><a href="#">平均风向(°)</a></li>
         <li><a href="#">平均风速(M/S)</a></li>
         <li><a href="#">阵风风速(M/S)</a></li>
-        <li><a href="#">顺风/侧风</a></li>
+        <li class="bw-sfce"><a href="#">顺风/侧风</a></li>
         <li><a href="#">能见度(M)</a></li>
         <li><a href="#">跑道视程(M)</a></li>
         <li><a href="#">天气现象</a></li>
@@ -165,20 +262,26 @@
             v-for="(item,index) in baowenlist"       
         >
            <ul>
-               <li class="list-icons-box">
-                     <a>{{item.TT}}
-                     <span v-if="item.ISHAVECHANGE" class="list-icons classify-toggle toggle-open"></span>                     
+               <li class="list-icons-box bw-leixing">
+                     <a class="bw-bwlx" v-bind:style="{'color':item.TTCOLOR}">
+                        {{item.TT}}
+                       <span v-if="item.ISHAVECHANGE" class="list-icons classify-toggle toggle-open"></span>                     
                      </a>
-                     &nbsp
                </li>
                <li class="airport-name">
-                     <a href="#">
-                        <span>{{item.AIRPORTNAME}}</span> 
-                        &nbsp
+                     <div class="airport-name-div1">
+                        <div class="airport-name-div2">
+                               {{item.AIRPORTNAME}}
+                               &nbsp
+                        </div>
+                     </div>
+               </li>
+               <li class="bw-fbtime">
+                     <a href="#" style="padding-left: 0px" v-bind:style="{'color':item.ISNEW}">
+                           {{item.REFTIME}} &nbsp
                      </a>
                </li>
-               <li><a href="#">{{item.REFTIME}} &nbsp</a></li>
-               <li><a href="#">{{item.WINDDIR}} &nbsp</a></li>
+               <li class="bw-bjfx"><a href="#">{{item.WINDDIR}} &nbsp</a></li>
                <li><a href="#">
                        {{item.WINDSPEED}} &nbsp
                        <span class="list-icons status" v-bind:style="{'background-image':item.WINDSPEED_UOD}"></span>
@@ -192,7 +295,7 @@
                        <span class="list-icons warn" v-bind:style="{'background-color':item.GUSTSPEED_ALARMCOLOR}"></span>
                    </a>
                </li>
-               <li><a href="#" class="cf-pop"><i class="fa fa-list" v-on:click="clickList(index)"></i> </a></li>
+               <li class="bw-sfce"><a href="#" class="cf-pop"><i class="fa fa-list" v-on:click="clickList(index)"></i> </a></li>
                <li>
                    <a href="#">
                         {{item.VISPREV}}&nbsp 
@@ -214,11 +317,14 @@
                    </a>
                </li>
                <li class="cloud-name">
-                   <a href="#" class="cloud-a">
-                       {{item.CLOUD}} &nbsp
-                       <span class="list-icons status" v-bind:style="{'background-image':item.CLOUD_UOD}"></span>
-                       <span class="list-icons warn" v-bind:style="{'background-color':item.CLOUD_ALARMCOLOR}"></span>
-                   </a>
+                  <div class="cloud-div1">
+                     <div  class="cloud-div2">
+                        <span class="cloud-div2-span"> {{item.CLOUD}} </span>
+                         &nbsp
+                         <span class="cloud-yanse" v-bind:style="{'background-color':item.CLOUD_ALARMCOLOR}"></span>
+                         <span class="cloud-jiantou" v-bind:style="{'background-image':item.CLOUD_UOD}"></span>
+                     </div>
+                  </div> 
                </li>
                <li class="skbw-wendu">
                    <a href="#" >
@@ -287,9 +393,11 @@ new Vue({
         {
           "ID": "274937097",
           "TT": "SA",  //报文种类
+          "TTCOLOR":"#FF0000",
           "CCCC": "VEGT", //子报文机场
-          "AIRPORTNAME": "VEGT 高哈蒂,印度\/高哈蒂", //机场名
+          "AIRPORTNAME": "VEGT 高哈蒂,印度\/高哈蒂印度\/高哈蒂印度\/高哈蒂印度\/高哈蒂", //机场名
           "REFTIME": "2017\/6\/18", //发布时间
+          "ISNEW":"#FF0000", //0 发布时间 红色
           "VTIME": "", //预报起止时间
           "WINDDIR": "230", //平均风向
           "WINDSPEED": "2", //平均风速
@@ -362,7 +470,7 @@ new Vue({
         },
         {
           "ID": "274938444",
-          "TT": "SA",
+          "TT": "PROB40TEMPO",
           "CCCC": "VEGY",
           "AIRPORTNAME": "VEGY 格雅\/格雅\/印度",
           "REFTIME": "2017\/6\/18",
@@ -438,14 +546,14 @@ new Vue({
         }
     ]
   }, 
-  created: function (){
-     this.$http.get("http://rapapi.org/mockjs/21289/sh/bw?")
-     .then( (res)=>{
-           this.baowenlist = res.data
-     },(err) =>{
-        console.log(err)
-     })
-  },
+  // created: function (){
+  //    this.$http.get("http://rapapi.org/mockjs/21289/sh/bw?")
+  //    .then( (res)=>{
+  //          this.baowenlist = res.data
+  //    },(err) =>{
+  //       console.log(err)
+  //    })
+  // },
   methods:{ 
      clickList:function (index){
         this.isShow = true
