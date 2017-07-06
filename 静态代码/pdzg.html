@@ -12,6 +12,23 @@
             });
         });
     </script>
+    <style type="text/css">
+      .pd-2fx{
+        width: 5.5%
+      }
+      a .status {
+          right: -15px;
+      }
+      a .warn {
+          left: -20px;
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          border-radius: 8px;
+      }
+      .pd-2zc{
+        width: 7%
+      }
+    </style>
 </head>
 <body>
 <div class="color-line">
@@ -30,16 +47,16 @@
             <th><a href="#">机场111</a></th>
             <th><a href="#">跑道编号</a></th>
             <th><a href="#">更新时间<br/><span>(UTC)</span></a></th>
-            <th><a href="#">2min平均风向<br/><span>(°)</span></a></th>
-            <th><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">阵风风向<br/><span>(°)</span></a></th>
+            <th class="pd-2fx"><a href="#">2min平均风向<br/><span>(°)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2fx"><a href="#">阵风风向<br/><span>(°)</span></a></th>
             <th><a href="#">阵风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">2min阵风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">1minMOR<br/><span>(m)</span></a></th>
-            <th><a href="#">1minRVR<br/><span>(m)</span></a></th>
-            <th><a href="#">云底高<br/><span>(m)</span></a></th>
-            <th><a href="#">温度<br/><span>(℃)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min顺风风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2zc"><a href="#">1minMOR<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">1minRVR<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">云底高<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">温度<br/><span>(℃)</span></a></th>
             <th><a href="#">露点温度<br/><span>(℃)</span></a></th>
             <th><a href="#">相对湿度<br/><span>(%)</span></a></th>
         </tr>
@@ -49,61 +66,61 @@
             <th><a href="#">机场</a></th>
             <th><a href="#">跑道编号</a></th>
             <th><a href="#">更新时间<br/><span>(UTC)</span></a></th>
-            <th><a href="#">2min平均风向<br/><span>(°)</span></a></th>
-            <th><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">阵风风向<br/><span>(°)</span></a></th>
+            <th class="pd-2fx"><a href="#">2min平均风向<br/><span>(°)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min平均风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2fx"><a href="#">阵风风向<br/><span>(°)</span></a></th>
             <th><a href="#">阵风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">2min阵风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
-            <th><a href="#">1minMOR<br/><span>(m)</span></a></th>
-            <th><a href="#">1minRVR<br/><span>(m)</span></a></th>
-            <th><a href="#">云底高<br/><span>(m)</span></a></th>
-            <th><a href="#">温度<br/><span>(℃)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min顺风风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2zc"><a href="#">2min正侧风风速<br/><span>(m/s)</span></a></th>
+            <th class="pd-2zc"><a href="#">1minMOR<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">1minRVR<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">云底高<br/><span>(m)</span></a></th>
+            <th class="pd-2zc"><a href="#">温度<br/><span>(℃)</span></a></th>
             <th><a href="#">露点温度<br/><span>(℃)</span></a></th>
             <th><a href="#">相对湿度<br/><span>(%)</span></a></th>
         </tr>
         <tr v-for="item in airlist">
             <td v-if="item.CCCCRowCount" v-bind:rowspan=item.CCCCRowCount class="first-td">
-                <a href="#" class="jic">{{item.CCCC}}</a>
+                <a href="pdzgdp.html" target="_target" class="jic">{{item.CCCC}}</a>
             </td>
             <td><a href="#" class="paod">{{item.RUNWAY_NO}}</a></td>
             <td><a href="#">{{item.OTIME}}</a></td>
-            <td><a href="#">
+            <td class="pd-2fx"><a href="#">
                   {{item.WIND_D2}} &nbsp
               </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
                  {{item.WIND_F2}} &nbsp
                  <span class="list-icons status" v-bind:style="{'background-image':item.WIND_F2_UOD}"></span>
                  <span class="list-icons warn" v-bind:style="{'background-color':item.WIND_F2_Color}"></span>
             </a></td>
-            <td><a href="#">{{item.MAX_WIND_D}}</a></td>
+            <td class="pd-2fx"><a href="#">{{item.MAX_WIND_D}}</a></td>
             <td><a href="#">
                {{item.MAX_WIND_F}} &nbsp
                <span class="list-icons warn" v-bind:style="{'background-color':item.MAX_WIND_F_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
                {{item.PARALLEL_WIND}} &nbsp
                <span class="list-icons warn" v-bind:style="{'background-color':item.PARALLEL_WIND_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
               {{item.CROSS_WIND}} &nbsp
               <span class="list-icons warn" v-bind:style="{'background-color':item.CROSS_WIND_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
                {{item.MOR_1A}} &nbsp
                <span class="list-icons warn" v-bind:style="{'background-color':item.MOR_1A_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
                {{item.RVR_1A}} &nbsp
                <span class="list-icons status" v-bind:style="{'background-image':item.RVR_1A_UOD}"></span>
                <span class="list-icons warn" v-bind:style="{'background-color':item.RVR_1A_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
               {{item.CLD_HL}} &nbsp
               <span class="list-icons status" v-bind:style="{'background-image':item.CLD_HL_UOD}"></span>
               <span class="list-icons warn" v-bind:style="{'background-color':item.CLD_HL_Color}"></span>
             </a></td>
-            <td><a href="#">
+            <td class="pd-2zc"><a href="#">
                {{item.TEMP}}  &nbsp
                <span class="list-icons status" v-bind:style="{'background-image':item.TEMP_UOD}"></span>
                <span class="list-icons warn" v-bind:style="{'background-color':item.TEMP_Color}"></span>
@@ -153,7 +170,7 @@ new Vue({
                "CLD_HM": "\/\/\/",
                "CLD_HH": "\/\/\/",
                "CROSS_WIND": "1.0R", //2min正侧风风向
-               "PARALLEL_WIND": "-3.9R",//2min阵风风速
+               "PARALLEL_WIND": "-3.9R",//2min顺风风速
                "ALARMLEVEL": "1",
                "ALARMCOLOR": "#FF0000",
                "CCCCLEVEL": "1",

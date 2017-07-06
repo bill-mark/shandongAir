@@ -1,0 +1,23 @@
+TT:报文种类，显示为类别就行
+CCCC：四字码  子报文显示 放在机场名称下
+AIRPOTRNAME：机场描述
+REFTIME：起效时间
+VTIME： 预告报文（FC、FT）的预报起止时间
+WINDDIR：平均风向
+WINDSPEED：平均风速
+GUSTSPEED：阵风风速
+PARALLEL_WIND：顺风风速
+CROSS_WIND：逆风风速
+VISREV：垂直能见度
+RVR：跑道视程
+WEATHER：天气现象
+TEMP：温度（实况报文用）
+MAXTEMP：最高温度（预告报文用）
+MINTEMP：最低温度（预告报文用）
+HUMID：湿度
+CLUOD：云
+其他带ALARMLEVEL的就是对应的告警级别，ALARMCOLOR是对应的告警颜色
+UOD是对应的上升下降箭头，-1是下降，1是上升，0是不变。
+ISPARENT：是否是主报文，1是，0不是
+ISHAVECHANGE：时候含有变化组、趋势报，大于等于1是指变化组、趋势的份数，就是需要下拉箭头你的。
+PARENTID：主报文ID
